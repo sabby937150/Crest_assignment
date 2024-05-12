@@ -1,0 +1,68 @@
+"File Processor Design Specification"
+
+1. Overview:
+The File Processor is a Python utility designed to merge .dat files into a single CSV file while performing calculations on the data and ensuring uniqueness of records. It reads data from .dat files, processes it, and writes the merged data along with additional statistics to a CSV file.
+
+2. Input:
+.dat files containing tab-separated data.
+Paths to the input .dat files.
+Output file path for the merged CSV file.
+
+3. Output:
+Merged CSV file containing unique records with calculated gross salary, Second-highest salary & Average gross salary.
+
+4. Modules:
+read_input_file(file_path):
+Reads a .dat file and returns a list of dictionaries representing each row.
+
+write_csv_file(data, output_file):
+Writes unique data to a CSV file, excluding duplicates.
+
+merge_output_files(file1, file2, output_file):
+Merges two .dat files into one CSV file.
+Calculates gross salary for each record.
+Adds additional statistics to the output file.
+
+5. Functionality:
+Reading .dat Files:
+Reads each .dat file line by line.
+Extracts headers from the first line.
+Parses subsequent lines to create dictionaries representing rows of data.
+
+Merging Data:
+Combines data from two .dat files.
+Ensures uniqueness of records by checking against a set of seen rows.
+Calculates gross salary for each record.
+
+Writing to CSV:
+Writes merged data to a CSV file.
+Excludes duplicate records.
+Appends the calculated gross salary to each row.
+
+Additional Statistics:
+Calculates the second-highest salary and average gross salary from the merged data.
+Appends these statistics to the end of the output CSV file.
+
+6. Output Format:
+Merged CSV file:
+Contains headers from the original data files.
+Includes 'Gross Salary' column with calculated values.
+Additional statistics are appended at the end in the format: "Second Highest Salary=xxx, Average Salary=yyy".
+
+7. Error Handling:
+Proper error handling for file I/O operations.
+Graceful handling of malformed data or missing files.
+
+8. Testing:
+Unit tests for individual functions.
+Integration tests to ensure correct merging and calculation.
+Test cases to verify handling of edge cases and errors.
+
+9. Dependencies:
+Python 3.x
+No additional external libraries required.
+
+10. Usage:
+Run the main script with appropriate file paths.
+Output will be generated in the specified CSV file path.
+End of Design Specification
